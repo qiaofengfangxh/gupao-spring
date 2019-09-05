@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -74,6 +75,12 @@ public class QFDispatcherServlet extends javax.servlet.http.HttpServlet {
     }
 
     private void doAutowired() {
+        if (ioc.isEmpty()) return;
+
+        for (Map.Entry<String, Object> entry : ioc.entrySet()) {
+            entry.getValue();
+        }
+
     }
 
     private void doInstance() {
